@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "Convex Optimization"
+  author: "Norah Jones"
+  date: "2024/3/7"
+  chapters:
+    - index.qmd
+    - GradientMethod.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

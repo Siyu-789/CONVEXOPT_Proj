@@ -1,0 +1,561 @@
+# Gradient Method & Newton Method
+
+## Problem 9.30 (10 points)
+
+### a
+
+```{r}
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+
+# size
+m <- 20
+n <- 10
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+n_i <- numeric(max_i)
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+# for loop
+for (i in 1:max_i) {
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+  
+  # store iteration values
+  n_i[i] <- i
+  values[i] <- val
+  
+  # stop statement: ||Df(x)||_2 \leq \eta
+  if (is.infinite(norm(grad, type = "2")) || is.na(norm(grad, type = "2"))) {
+    break
+  } else if (norm(grad, type = "2") < eta) {
+    values <- values[1:i]  
+    n_i <- n_i[1:i]
+    break
+  }
+  
+  # direction of gradient method
+  v <- -grad
+  
+  # backtracking line search: loop for t
+  t <- 1
+  
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  # Ensure to update Ax only once per iteration
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  # Corrected position of the while loop condition check
+  while (f(new_x, new_Ax) > val + gamma * t * crossprod(grad, v)) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+  
+  # Corrected progress message variable
+  cat("i:", i, "Value:", val,"Step Length:", t, "\n")
+}
+
+
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Gradient Descent')
+
+
+plot(steplen, type = 'b', col = 'red', xlab = 'k', ylab = 't^(k)', main = 'Step Length During Gradient Descent')
+
+
+```
+
+```{r}
+# different size
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+
+# size
+m <- 20
+n <- 10
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+# for loop
+for (i in 1:max_i) {
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+  
+  # store iteration values
+  values[i] <- val
+  
+  # stop statement: ||Df(x)||_2 \leq \eta
+  if (is.infinite(norm(grad, type = "2")) || is.na(norm(grad, type = "2"))) {
+    break
+  } else if (norm(grad, type = "2") < eta) {
+    values <- values[1:i]  
+    n_i <- n_i[1:i]
+    break
+  }
+  
+  # direction of gradient method
+  v <- -grad
+  
+  # backtracking line search: loop for t
+  t <- 1
+  
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  # Ensure to update Ax only once per iteration
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  # Corrected position of the while loop condition check
+  while (f(new_x, new_Ax) > val + gamma * t * crossprod(grad, v)) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+  
+  # Corrected progress message variable
+  cat("i:", i, "Value:", val,"Step Length:", t, "\n")
+}
+
+
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Gradient Descent')
+
+
+plot(steplen, type = 'b', col = 'red', xlab = 'k', ylab = 't^(k)', main = 'Step Length During Gradient Descent')
+```
+
+### b
+
+```{r}
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+
+# size
+m <- 10
+n <- 10
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+hess <- function(x, Ax, A) {
+  d <- 1 / ((1 - Ax)^2)
+  diag_d <- diag(as.vector(d))
+  H <- t(A) %*% diag_d %*% A + diag(1 / ((1 + x)^2)) + diag(1 / ((1 - x)^2))
+  return(H)
+}
+
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+
+
+# for loop
+for (i in 1:max_i) {
+  Ax <- A %*% x
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+
+  # Hessian
+  H <- hess(x, Ax, A)
+  
+  # v and <t,v>
+  v <- solve(H, -grad)
+  fprime <- t(grad) %*% v
+  
+  # stop statement: \lambda_2
+  if (abs(fprime) < eta) {
+    break
+  }
+  
+  # backtracking line search: loop for t
+  t <- 1
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  while (f(new_x, new_Ax) > val + gamma * t * fprime) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+  
+  cat("i:", i, "Value:", val, "Step Length:", t, "\n")
+}
+
+# Plotting
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Newton\'s Method')
+plot(steplen, type = 'b', col = 'red', xlab = 'Iteration', ylab = 't^(k)', main = 'Step Length During Newton\'s Method')
+```
+
+```{r}
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+
+# size
+m <- 200
+n <- 100
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+hess <- function(x, Ax, A) {
+  d <- 1 / ((1 - Ax)^2)
+  diag_d <- diag(as.vector(d))
+  H <- t(A) %*% diag_d %*% A + diag(1 / ((1 + x)^2)) + diag(1 / ((1 - x)^2))
+  return(H)
+}
+
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+
+
+# for loop
+for (i in 1:max_i) {
+  Ax <- A %*% x
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+
+  # Hessian
+  H <- hess(x, Ax, A)
+  
+  # v and <t,v>
+  v <- solve(H, -grad)
+  fprime <- t(grad) %*% v
+  
+  # stop statement: \lambda_2
+  if (abs(fprime) < eta) {
+    break
+  }
+  
+  # backtracking line search: loop for t
+  t <- 1
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  while (f(new_x, new_Ax) > val + gamma * t * fprime) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+  
+  cat("i:", i, "Value:", val, "Step Length:", t, "\n")
+}
+
+# Plotting
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Newton\'s Method')
+plot(steplen, type = 'b', col = 'red', xlab = 'Iteration', ylab = 't^(k)', main = 'Step Length During Newton\'s Method')
+```
+
+## Problem 9.31 (10 points)
+
+### a
+```{r}
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+N=2
+
+# size
+m <- 10
+n <- 10
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+hess <- function(x, Ax, A) {
+  d <- 1 / ((1 - Ax)^2)
+  diag_d <- diag(as.vector(d))
+  H <- t(A) %*% diag_d %*% A + diag(1 / ((1 + x)^2)) + diag(1 / ((1 - x)^2))
+  return(H)
+}
+
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+hessian_counter <- N
+
+# for loop
+for (i in 1:max_i) {
+  Ax <- A %*% x
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+
+  # Hessian
+  if (hessian_counter >= N) {
+    H <- hess(x, Ax, A)
+    hessian_counter <- 0 
+  }
+  
+  # v and <t,v>
+  v <- solve(H, -grad)
+  fprime <- t(grad) %*% v
+  
+  # stop statement: \lambda_2
+  if (abs(fprime) < eta) {
+    break
+  }
+  
+  # backtracking line search: loop for t
+  t <- 1
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  while (f(new_x, new_Ax) > val + gamma * t * fprime) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+
+  # Update Hessian counter
+  hessian_counter <- hessian_counter + 1
+
+  cat("i:", i, "Value:", val, "Step Length:", t, "\n")
+}
+
+# Plotting
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Newton\'s Method')
+plot(steplen, type = 'b', col = 'red', xlab = 'k', ylab = 't^(k)', main = 'Step Length During Newton\'s Method')
+```
+
+### b
+
+```{r}
+gamma <- 0.01
+beta <- 0.5
+max_i <- 5
+eta <- 0.01
+N=2
+
+# size
+m <- 10
+n <- 10
+
+# initialization
+x <- rep(0, n) 
+A <- matrix(runif(m * n), nrow = m)
+
+Ax <- A %*% x
+
+# defination of function
+f <- function(x, Ax) {
+  -sum(log(1 - Ax)) - sum(log(1 + x)) - sum(log(1 - x))
+}
+
+gradient <- function(x, Ax, A) {
+  t(A) %*% (1 / (1 - Ax)) - 1 / (1 + x) - 1 / (1 - x)
+}
+
+# Modified
+hess_diag <- function(x, Ax, A) {
+  d <- 1 / ((1 - Ax)^2)
+  # Diagonal Hessian approximation
+  diag_H <- 1 / ((1 - x)^2) + 1 / ((1 + x)^2) + (t(A) * A) %*% d
+  H_diag <- diag(diag(diag_H))
+  return(H_diag)
+}
+
+
+# storage
+values <- numeric(max_i)
+steplen <- numeric(max_i)
+
+# for loop
+for (i in 1:max_i) {
+  Ax <- A %*% x
+  # f(x)
+  val <- f(x, Ax)
+  
+  # Df(x)
+  grad <- gradient(x, Ax, A)
+
+  # Hessian diagonal approximation
+  H_diag <- hess_diag(x, Ax, A)
+  
+  # Inverse of diag_H approximation
+  H_inv <- 1 / diag(H_diag)
+
+  # v and <t,v>
+  v <- H_inv * (-grad)
+  fprime <- sum(grad * v)
+  
+  # stop statement: \lambda^2 / 2
+  if (abs(fprime / 2) < eta) {
+    break
+  }
+  
+  # backtracking line search: loop for t
+  t <- 1
+  while (max(A %*% (x + t * v)) >= 1 || max(x + t * v) >= 1 || min(x + t * v) <= -1) {
+    t <- beta * t
+  }
+  
+  new_x <- x + t * v
+  new_Ax <- A %*% new_x
+  
+  while (f(new_x, new_Ax) > val + gamma * t * fprime) {
+    t <- beta * t
+    new_x <- x + t * v
+    new_Ax <- A %*% new_x
+  }
+  
+  # iteration
+  x <- new_x
+  Ax <- new_Ax
+  
+  # store iteration step length
+  steplen[i] <- t
+  
+  cat("i:", i, "Value:", val, "Step Length:", t, "\n")
+}
+
+# Plotting
+plot(values, type = 'b', col = 'blue', xlab = 'k', ylab = 'f(x^(k))', main = 'Objective Function During Newton\'s Method')
+plot(steplen, type = 'b', col = 'red', xlab = 'k', ylab = 't^(k)', main = 'Step Length During Newton\'s Method')
+```

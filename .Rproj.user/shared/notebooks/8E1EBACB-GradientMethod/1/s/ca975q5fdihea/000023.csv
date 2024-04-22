@@ -1,0 +1,3 @@
+"0",""
+"0",""
+"0","plot(grad_norms, type = 'b', col = 'red', xlab = 'k', ylab = 'Gradient norm', main = 'Gradient Norm During Gradient Descent')"

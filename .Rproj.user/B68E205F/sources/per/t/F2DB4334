@@ -1,0 +1,31 @@
+{
+    "id": "F2DB4334",
+    "path": "C:/Users/c3415/OneDrive - Rutgers University/R libraries/Convex Optimization/GradientMethod.qmd",
+    "project_path": "GradientMethod.qmd",
+    "type": "quarto_markdown",
+    "hash": "1416051673",
+    "contents": "",
+    "dirty": false,
+    "created": 1709790305369.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "8,0",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "1080:758.2222290039062"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1710706715,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1710706715650,
+    "read_only": false,
+    "read_only_alternatives": []
+}

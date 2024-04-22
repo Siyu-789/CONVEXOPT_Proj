@@ -1,0 +1,64 @@
+---
+title: "LASSO Optimization: A Comparative Study of Subgradient, Coordinate Descent and  Proximal Gradient Method Algorithms"
+subtitle: "
+    Report of Convex Optimization Term Project 
+    | Due Date: April 29th, 2024 
+    Professor: Waheed U. Bajwa"
+author: "Siyu Chen"
+bibliography: references.bib
+csl: ieee-with-url.csl
+nocite: |
+  @ESL, @textbook,@glmnet-lasso,@question1,@question2,@FISTA
+---
+
+# Introduction
+
+The Least Absolute Shrinkage and Selection Operator (LASSO) is a regression analysis method that performs both variable selection and regularization to enhance the prediction accuracy and interpretability of the statistical model it produces. The optimization of LASSO involves solving a convex but not necessarily differentiable problem due to the absolute value in the regularization term. This term project aims to explore, implement, and compare three distinct optimization algorithms not covered in our standard curriculum: the Subgradient method, Coordinate Descent, and the Proximal Gradient method, each of which offers a unique approach to tackling the challenges posed by the LASSO formulation.
+
+
+# Rationale for the Project
+
+The motivation behind selecting these three methods lies in their relevance and varied approaches to handling convex optimization problems, especially in dealing with the L1 norm regularization. The Subgradient method is one of the most straightforward approaches to deal with non-differentiability, providing a robust but potentially slower convergence to the solution. Coordinate Descent is highly efficient in high-dimensional spaces, making it particularly suitable for sparse models like LASSO. Lastly, the Proximal Gradient method is an elegant compromise between efficiency and speed, especially with its accelerated variants like FISTA, which can significantly speed up convergence.
+
+By comparing these methods, this project aims to shed light on their practical performances, advantages, and limitations within the specific context of LASSO optimization. This comparison will not only enrich our understanding of these algorithms but also provide insights into their suitability for different types of LASSO problems, potentially guiding future applications and research.
+
+# Scope of the project
+
+1. LASSO function
+
+2. Learning notes of methods:
+
+- Definition
+
+- Procedure of algorithm and iterative formula
+
+- Convergence analysis
+
+3. Algorithm implementation
+
+4. Comparative analysis:
+
+- Timing: The run times of various algorithms are to be compared using datasets generated in accordance with the approach as delineated by @glmnet-lasso. These datasets will simulate realistic correlation structures and signal-to-noise ratios to ensure the timing comparisons are representative of practical scenarios.
+
+- Convergence Speed Analysis
+
+5. Discussion and Trade-off of Methods
+
+# Reference
+
+
+::: {#refs}
+:::
+
+
+echo "# CONVEXOPT_Proj" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Siyu-789/CONVEXOPT_Proj.git
+git push -u origin main
+
+git remote add origin https://github.com/Siyu-789/CONVEXOPT_Proj.git
+git branch -M main
+git push -u origin main

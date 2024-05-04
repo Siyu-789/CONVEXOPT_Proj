@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Convex Optimization - 1&nbsp; Gradient Method &amp; Newton Method</title>
+<title>Convex Optimization - Gradient Method &amp; Newton Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./index.html" rel="prev">
+<link href="./project_code.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GradientMethod.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gradient Method &amp; Newton Method</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GradientMethod.html">Homework</a></li><li class="breadcrumb-item"><a href="./GradientMethod.html">Gradient Method &amp; Newton Method</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,12 +145,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Term Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./GradientMethod.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gradient Method &amp; Newton Method</span></span></a>
+  <a href="./proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Proposal</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code of Project</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./GradientMethod.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gradient Method &amp; Newton Method</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -161,15 +201,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#problem-9.30-10-points" id="toc-problem-9.30-10-points" class="nav-link active" data-scroll-target="#problem-9.30-10-points"><span class="header-section-number">1.1</span> Problem 9.30 (10 points)</a>
+  <li><a href="#problem-9.30-10-points" id="toc-problem-9.30-10-points" class="nav-link active" data-scroll-target="#problem-9.30-10-points">Problem 9.30 (10 points)</a>
   <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a"><span class="header-section-number">1.1.1</span> a</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b"><span class="header-section-number">1.1.2</span> b</a></li>
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b</a></li>
   </ul></li>
-  <li><a href="#problem-9.31-10-points" id="toc-problem-9.31-10-points" class="nav-link" data-scroll-target="#problem-9.31-10-points"><span class="header-section-number">1.2</span> Problem 9.31 (10 points)</a>
+  <li><a href="#problem-9.31-10-points" id="toc-problem-9.31-10-points" class="nav-link" data-scroll-target="#problem-9.31-10-points">Problem 9.31 (10 points)</a>
   <ul class="collapse">
-  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1"><span class="header-section-number">1.2.1</span> a</a></li>
-  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1"><span class="header-section-number">1.2.2</span> b</a></li>
+  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">a</a></li>
+  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1">b</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -177,9 +217,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GradientMethod.html">Homework</a></li><li class="breadcrumb-item"><a href="./GradientMethod.html">Gradient Method &amp; Newton Method</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gradient Method &amp; Newton Method</span></h1>
+<h1 class="title">Gradient Method &amp; Newton Method</h1>
 </div>
 
 
@@ -196,10 +236,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="problem-9.30-10-points" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="problem-9.30-10-points"><span class="header-section-number">1.1</span> Problem 9.30 (10 points)</h2>
-<section id="a" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="a"><span class="header-section-number">1.1.1</span> a</h3>
+<section id="problem-9.30-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9.30-10-points">Problem 9.30 (10 points)</h2>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">a</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
@@ -284,10 +324,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 0.0625 
-i: 2 Value: -21.93311 Step Length: 1 
-i: 3 Value: -22.50242 Step Length: 0.03125 
-i: 4 Value: -22.67107 Step Length: 8.881784e-16 
-i: 5 Value: -22.67107 Step Length: 1.776357e-15 </code></pre>
+i: 2 Value: -22.20123 Step Length: 1 
+i: 3 Value: -22.93227 Step Length: 8.881784e-16 
+i: 4 Value: -22.93227 Step Length: 4.440892e-16 
+i: 5 Value: -22.93227 Step Length: 1.776357e-15 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Gradient Descent'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -389,10 +429,10 @@ i: 5 Value: -22.67107 Step Length: 1.776357e-15 </code></pre>
 <span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 0.0625 
-i: 2 Value: -22.89707 Step Length: 2.842171e-14 
-i: 3 Value: -22.89707 Step Length: 1.776357e-15 
-i: 4 Value: -22.89707 Step Length: 8.881784e-16 
-i: 5 Value: -22.89707 Step Length: 2.220446e-16 </code></pre>
+i: 2 Value: -21.58727 Step Length: 1 
+i: 3 Value: -21.70757 Step Length: 0.0625 
+i: 4 Value: -21.90264 Step Length: 7.105427e-15 
+i: 5 Value: -21.90264 Step Length: 1.776357e-15 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Gradient Descent'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -412,8 +452,8 @@ i: 5 Value: -22.89707 Step Length: 2.220446e-16 </code></pre>
 </div>
 </div>
 </section>
-<section id="b" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="b"><span class="header-section-number">1.1.2</span> b</h3>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">b</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
@@ -499,10 +539,10 @@ i: 5 Value: -22.89707 Step Length: 2.220446e-16 </code></pre>
 <span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 1 
-i: 2 Value: -3.936196 Step Length: 0.00390625 
-i: 3 Value: -3.936899 Step Length: 8.673617e-19 
-i: 4 Value: -3.936899 Step Length: 8.673617e-19 
-i: 5 Value: -3.936899 Step Length: 8.673617e-19 </code></pre>
+i: 2 Value: -3.671415 Step Length: 0.0009765625 
+i: 3 Value: -3.672162 Step Length: 7.105427e-15 
+i: 4 Value: -3.672162 Step Length: 1.387779e-17 
+i: 5 Value: -3.672162 Step Length: 3.552714e-15 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Newton</span><span class="sc">\'</span><span class="st">s Method'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -607,10 +647,10 @@ i: 5 Value: -3.936899 Step Length: 8.673617e-19 </code></pre>
 <span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 1 
-i: 2 Value: -136.268 Step Length: 1 
-i: 3 Value: -252.9817 Step Length: 0.25 
-i: 4 Value: -267.7972 Step Length: 1.734723e-18 
-i: 5 Value: -267.7972 Step Length: 1.734723e-18 </code></pre>
+i: 2 Value: -136.2967 Step Length: 1 
+i: 3 Value: -253.5493 Step Length: 0.25 
+i: 4 Value: -268.9881 Step Length: 1.084202e-19 
+i: 5 Value: -268.9881 Step Length: 1.084202e-19 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Newton</span><span class="sc">\'</span><span class="st">s Method'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -632,10 +672,10 @@ i: 5 Value: -267.7972 Step Length: 1.734723e-18 </code></pre>
 </div>
 </section>
 </section>
-<section id="problem-9.31-10-points" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="problem-9.31-10-points"><span class="header-section-number">1.2</span> Problem 9.31 (10 points)</h2>
-<section id="a-1" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="a-1"><span class="header-section-number">1.2.1</span> a</h3>
+<section id="problem-9.31-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9.31-10-points">Problem 9.31 (10 points)</h2>
+<section id="a-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-1">a</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
@@ -728,10 +768,10 @@ i: 5 Value: -267.7972 Step Length: 1.734723e-18 </code></pre>
 <span id="cb17-89"><a href="#cb17-89" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 1 
-i: 2 Value: -4.030226 Step Length: 1 
-i: 3 Value: -4.950666 Step Length: 5.551115e-17 
-i: 4 Value: -4.950666 Step Length: 5.551115e-17 
-i: 5 Value: -4.950666 Step Length: 8.673617e-19 </code></pre>
+i: 2 Value: -4.321432 Step Length: 1 
+i: 3 Value: -5.375923 Step Length: 1.110223e-16 
+i: 4 Value: -5.375923 Step Length: 6.938894e-18 
+i: 5 Value: -5.375923 Step Length: 3.469447e-18 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Newton</span><span class="sc">\'</span><span class="st">s Method'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -752,8 +792,8 @@ i: 5 Value: -4.950666 Step Length: 8.673617e-19 </code></pre>
 </div>
 </div>
 </section>
-<section id="b-1" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="b-1"><span class="header-section-number">1.2.2</span> b</h3>
+<section id="b-1" class="level3">
+<h3 class="anchored" data-anchor-id="b-1">b</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
@@ -848,10 +888,10 @@ object length</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>i: 1 Value: 0 Step Length: 0.125 
-i: 2 Value: -9.584415 Step Length: 1.110223e-16 
-i: 3 Value: -9.584415 Step Length: 2.775558e-17 
-i: 4 Value: -9.584415 Step Length: 2.775558e-17 
-i: 5 Value: -9.584415 Step Length: 2.775558e-17 </code></pre>
+i: 2 Value: -9.43772 Step Length: 2.775558e-17 
+i: 3 Value: -9.43772 Step Length: 2.775558e-17 
+i: 4 Value: -9.43772 Step Length: 2.775558e-17 
+i: 5 Value: -9.43772 Step Length: 2.775558e-17 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(values, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">col =</span> <span class="st">'blue'</span>, <span class="at">xlab =</span> <span class="st">'k'</span>, <span class="at">ylab =</span> <span class="st">'f(x^(k))'</span>, <span class="at">main =</span> <span class="st">'Objective Function During Newton</span><span class="sc">\'</span><span class="st">s Method'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1266,8 +1306,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./project_code.html" class="pagination-link" aria-label="Code of Project">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code of Project</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

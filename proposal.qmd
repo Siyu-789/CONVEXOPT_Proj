@@ -1,5 +1,5 @@
 ---
-title: "LASSO Optimization: A Comparative Study of Subgradient, Coordinate Descent and  Proximal Gradient Method Algorithms"
+title: "Proposal"
 subtitle: "
     Proposal of Convex Optimization Term Project 
     | Due Date: April 2nd, 2024 

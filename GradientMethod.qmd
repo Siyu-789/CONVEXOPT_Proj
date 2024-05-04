@@ -1,4 +1,4 @@
-# Gradient Method & Newton Method
+# Gradient Method & Newton Method {.unnumbered}
 
 ## Problem 9.30 (10 points)
 

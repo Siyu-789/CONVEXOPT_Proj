@@ -1,21 +1,29 @@
 project:
   type: book
+  output-dir: docs
+
+jupyter: python3
 
 book:
   title: "Convex Optimization"
-  author: "Norah Jones"
+  author: "Siyu Chen"
   date: "2024/3/7"
   chapters:
     - index.qmd
-    - GradientMethod.qmd
+    - part: "Term Project"
+      chapters:
+        - proposal.qmd
+        - Project.qmd
+        - project_code.ipynb
+    - part: "Homework"
+      chapters:
+        - GradientMethod.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
 
 editor: visual
 

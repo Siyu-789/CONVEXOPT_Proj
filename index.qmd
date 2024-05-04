@@ -1,9 +1,5 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This is a note book of Convex Optimization and final project
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+"LASSO Optimization: A Comparative Study of Subgradient, Coordinate Descent and  Proximal Gradient Method Algorithms"
